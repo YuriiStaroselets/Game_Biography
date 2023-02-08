@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="vievport" content="width=device-width, initial-scale=1.0">
+    <title>Game Biography</title>
+    <meta name="description" content="Game Biograbhy">
+    <meta name="keywords" content="game biography, game">
+    <link rel="stylesheet" href='{% static "css/style.css"%}'>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="logo">
+                <div class="logo_text">
+                    <a href="/">
+                        <h1>Game Biography</h1>
+                    </a>
+                    <h2>We know many about games</h2>
+                </div>
+            </div>
+            <div class="menubar">
+                <ul type="none" class="menu">
+                    <li><a href="/">Main</a></li>
+                    <li class="selected"><a href="/games">Games</a></li>
+                    <li><a href="">Game rating</a></li>
+                    <li><a href="">News</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="web_content">
+            <div class="sidebar_container">
+                <div class="sidebar">
+                    <h2>Search</h2>
+                    <form action="{% url 'game_page_url' %}" method="get" id="search_form" >
+                        <input type="search" name="search" placeholder="Search"/>
+                        <input type="submit" class="btn" value="Find" />
+                    </form>
+                </div>
+                <div class="sidebar">
+                    <h2>Log in</h2>
+                    <form method="post" action="#" id="login">
+                        <input type="text" name="login_field" placeholder="Login" />
+                        <input type="password" name="password_field" placeholder="Password" />
+                        <input type="submit" class="btn" value="Enter" />
+                        <div class="lables_passreg_text">
+                            <span><a href="#">Forgot password</a></span> | <span><a href="#">Sign in</a></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar">
+                    <h2>News</h2>
+                    <a href="#"></a>
+                </div>
+                <div class="sidebar">
+                    <h2>Future Games</h2>
+                    <ul>
+                        <li><a href="#">1</a><span class="future_sidebar">//</span></li>
+                        <li><a href="#">2</a><span class="future_sidebar">//</span></li>
+                        <li><a href="#">3</a><span class="future_sidebar">//</span></li>
+                        <li><a href="#">4</a><span class="future_sidebar">//</span></li>
+                        <li><a href="#">5</a><span class="future_sidebar">//</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content">
+                {% for el in games %}
+                <div class="game_info">
+                    <img src="{{el.Gameimg.url}}">
+                    <a href="{{el.id }}">{{el.title}}</a><br>
+                    <p>{{el.date|date:'Y'}}</p><br>
+                    <div class="button">
+                        <a href="{{el.id }}">Watch</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    <div class="footer">
+        <p>
+            <a href="index.html">Main</a>  |
+    		<a href="games.html">Games</a>  |
+    		<a href="rating.html">Game Rating</a>  |
+    		<a href="#">News</a>  |
+        </p>
+        <p>no coppy bitch</p>
+    </div>
+    </div>
+</body>
+
+</html>
